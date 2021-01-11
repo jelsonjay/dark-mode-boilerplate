@@ -1,12 +1,13 @@
 import React, {useContext} from 'react'
-import {Global, css} from '@emotion/core'
+import {Global, css} from '@emotion/react'
 import {useTheme} from '@emotion/react'
 import Context from '../Context/Context'
 
 const Layout = ({children}) => {
-  const {state} = useContext()
 
-  const theme = useTheme
+const {state} = useContext(Context)
+
+const theme = useTheme()
 
   return (
     <div>
@@ -18,10 +19,14 @@ const Layout = ({children}) => {
         padding: 0;
       }
       body{
-        background-color: ${state.Mode ? theme.darkMode.background : theme.lightMode.background}
+      background: ${state.isDark ? 
+      theme.dark.background : 
+      theme.light.background}
       }
       `} />
       {children}
     </div>
   )
 }
+
+export default Layout

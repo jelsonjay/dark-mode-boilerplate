@@ -1,9 +1,14 @@
 import {useReducer} from 'react'
+import storage from 'local-storage-fallback'
 
 const reducer = (state, action) =>{
+
 switch(action.type){
-  case "toggle-dark-mode" : 
-  return {}
+  case "Toggle_Dark": 
+  storage.setItem("isDark", !state.isDark)
+  return {
+    isDark: !state.isDark,
+  }
   default: {
     return state
   }
@@ -12,8 +17,7 @@ switch(action.type){
 
 const useGlobalState = () => {
   const [state, dispatch] = useReducer(reducer, {
-  Mode: false
-
+  isDark: storage.getItem('isDark') ? JSON.parse(storage.getItem('isDark')) : false,
   })
   return{state , dispatch}
 }

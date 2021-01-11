@@ -2,10 +2,11 @@ import React from 'react'
 import userGlobalState from './useGlobalState'
 import Context from './Context'
 
-
-const GlobalStateProvider = () => {
+const GlobalStateProvider = ({children}) => {
   return (
-    <Context.Provider value={userGlobalState()}></Context.Provider>
+    <Context.Provider 
+    value={userGlobalState()}>{children}
+    </Context.Provider>
   )
 }
 

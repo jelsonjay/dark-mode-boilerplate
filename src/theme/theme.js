@@ -1,10 +1,10 @@
 export const theme = {
-  lightMode:{
-    font: '#444',
-    background: '#fff'
+  light:{
+  font: "black",
+  background: "white",
   },
-  darkMode:{
-    font: '#fff',
-    background: '#000'
+  dark:{
+  font: "white",
+  background:"black",
   }
 }
